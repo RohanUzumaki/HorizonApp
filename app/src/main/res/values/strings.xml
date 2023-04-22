@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Horizon</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register_here">Register here</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="email">Email</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login_here">Login here</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+</resources>
