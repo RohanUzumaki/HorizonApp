@@ -75,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
 
                 createUser(email, password, listener);
+
             }
         });
 
@@ -161,5 +162,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
 }
