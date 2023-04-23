@@ -67,12 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                     }
                 };
-                listener.setOnSuccessListener(new Runnable() {
-                    @Override
-                    public void run() {
-                        pushRecord(firstName, lastName, phone, email, listener.getUserId());
-                    }
-                });
+                listener.setOnSuccessListener(() -> pushRecord(firstName, lastName, phone, email, listener.getUserId()));
 
                 createUser(email, password, listener);
 
