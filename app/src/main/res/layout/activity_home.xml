@@ -5,42 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-   android:background="@drawable/homepage" >
+   android:background="@drawable/dashboard" >
 
 
     <Button
-        android:id="@+id/bookbtn"
-        android:layout_width="163dp"
-        android:layout_height="182dp"
-        android:layout_marginTop="328dp"
+        android:id="@+id/bookBtn"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:background="@drawable/btn_bg2"
-        android:backgroundTint="@color/pale_green"
+        android:backgroundTint="@color/light_green"
         android:gravity="center_horizontal|center_vertical"
+        android:shadowColor="#000000"
+        android:shadowDx="@dimen/material_emphasis_medium"
         android:text="Book An
         Appointment"
         android:textAlignment="gravity"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/consbtn"
-        android:layout_width="163dp"
-        android:layout_height="182dp"
+        android:id="@+id/consBtn"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:background="@drawable/btn_bg2"
-        android:backgroundTint="@color/pale_green"
+        android:backgroundTint="@color/light_green"
         android:gravity="center_horizontal|center_vertical"
+        android:shadowColor="#000000"
+        android:shadowDx="@dimen/material_emphasis_medium"
         android:text="Online Consultation"
         android:textAlignment="gravity"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.926"
+        app:layout_constraintTop_toBottomOf="@+id/bookBtn"
+        app:layout_constraintVertical_bias="0.402"
         tools:ignore="HardcodedText,TextSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
