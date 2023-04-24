@@ -23,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     FirebaseAuth mAuth;
-    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                userLogin();
-                userAuth();
-
+                sendUserToNextActivity();
                 startActivity(intent);
                 finish();
             }
