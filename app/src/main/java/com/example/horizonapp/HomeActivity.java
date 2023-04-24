@@ -8,17 +8,13 @@ import android.widget.Button;
 
 
 public class HomeActivity extends AppCompatActivity {
-    Button bookbtn;
-    Button consbtn;
+    Button bookBtn;
+    Button consBtn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
-
-
     }
 }
