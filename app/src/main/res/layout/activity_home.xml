@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-   android:background="@drawable/dashboard" >
+    android:background="@drawable/dashboard"
+    tools:context=".HomeActivity">
 
 
     <Button
@@ -27,8 +27,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.527"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 
     <Button
         android:id="@+id/consBtn"
@@ -48,6 +48,22 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookBtn"
-        app:layout_constraintVertical_bias="0.402"
+        app:layout_constraintVertical_bias="0.226"
         tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="MissingConstraints,VisualLintBottomNav" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
