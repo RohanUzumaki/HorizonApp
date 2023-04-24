@@ -34,13 +34,18 @@ public class LoginActivity extends AppCompatActivity {
         edEmail = findViewById(R.id.editTextLoginEmailAddress);
         edPassword = findViewById(R.id.editTextLoginPassword);
         btn = findViewById(R.id.buttonLogin);
+
         tv = findViewById(R.id.textViewNewUser);
 
-        tv.setOnClickListener(task -> {
-            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        });
-        btn.setOnClickListener(task ->{
-            userLogin();
+        tv.setOnClickListener(task -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                sendUserToNextActivity();
+                startActivity(intent);
+                finish();
+            }
         });
     }
 
@@ -91,5 +96,10 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
+
 }
+
+
+

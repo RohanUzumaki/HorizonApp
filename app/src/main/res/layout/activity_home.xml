@@ -4,6 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+   android:background="@drawable/homepage" >
 
+
+    <Button
+        android:id="@+id/bookbtn"
+        android:layout_width="163dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/btn_bg2"
+        android:backgroundTint="@color/pale_green"
+        android:text="Book An
+        Appointment"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/consbtn"
+        android:layout_width="163dp"
+        android:layout_height="182dp"
+        android:background="@drawable/btn_bg2"
+        android:backgroundTint="@color/pale_green"
+        android:text="Online Consultation"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.926"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
