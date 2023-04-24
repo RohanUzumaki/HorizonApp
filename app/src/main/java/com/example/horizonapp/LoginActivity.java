@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +35,21 @@ public class LoginActivity extends AppCompatActivity {
         edEmail = findViewById(R.id.editTextLoginEmailAddress);
         edPassword = findViewById(R.id.editTextLoginPassword);
         btn = findViewById(R.id.buttonLogin);
-
         tv = findViewById(R.id.textViewNewUser);
+        progressBar = findViewById(R.id.progressBar);
 
         tv.setOnClickListener(task -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                sendUserToNextActivity();
-                startActivity(intent);
-                finish();
-            }
+
+        btn.setOnClickListener(v -> {
+            String email = edEmail.getText().toString().trim();
+            String password = edPassword.getText().toString().trim();
+
+            userLogin(email, password);
+            userAuth(email, password);
         });
     }
 
-    private void userLogin() {
-        String email = edEmail.getText().toString().trim();
-        String password = edPassword.getText().toString().trim();
+    private void userLogin(String email, String password) {
 
         if (email.isEmpty()) {
             edEmail.setError("Email is required");
@@ -80,10 +78,13 @@ public class LoginActivity extends AppCompatActivity {
     private void userAuth(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
+                    progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        sendUserToNextActivity();
+                        mUser = mAuth.getCurrentUser();
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(LoginActivity.this, "Authentication failed.",
@@ -91,15 +92,4 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-
-    private void sendUserToNextActivity() {
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
-    }
-
 }
-
-
-
