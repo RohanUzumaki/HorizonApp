@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <array name="poppins_thin">
+        <item>@font/poppins_thin</item>
+    </array>
+    <array name="poppins_light">
+        <item>@font/poppins_light</item>
+    </array>
+    <string-array name="preloaded_fonts">fonts</string-array>
+</resources>
