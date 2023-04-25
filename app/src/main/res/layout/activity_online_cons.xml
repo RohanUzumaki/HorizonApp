@@ -7,4 +7,74 @@
     tools:context=".OnlineConsActivity"
     android:background="@drawable/online_consultation">
 
+    <Button
+        android:id="@+id/btnVideo"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:background="@drawable/btn_bg2"
+        android:backgroundTint="@color/light_green"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center_horizontal|center_vertical"
+        android:shadowColor="#000000"
+        android:shadowDx="@dimen/material_emphasis_medium"
+        android:text="Video Consultation"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <Button
+        android:id="@+id/btnChat"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:background="@drawable/btn_bg2"
+        android:backgroundTint="@color/light_green"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center_horizontal|center_vertical"
+        android:shadowColor="#000000"
+        android:shadowDx="@dimen/material_emphasis_medium"
+        android:text="Chat with Doctor"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVideo"
+        app:layout_constraintVertical_bias="0.326" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UselessLeaf" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg3"
+        app:backgroundTint="@color/light_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="VisualLintBottomNav" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
