@@ -12,6 +12,12 @@
         android:theme="@style/Theme.HorizonApp"
         tools:targetApi="33">
         <activity
+            android:name=".ChatWithDoc"
+            android:exported="false" />
+        <activity
+            android:name=".VideoConsultation"
+            android:exported="false" />
+        <activity
             android:name=".OnlineConsActivity"
             android:exported="false" />
         <activity
