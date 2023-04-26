@@ -44,38 +44,46 @@ public class LoginActivity extends AppCompatActivity {
             String email = edEmail.getText().toString().trim();
             String password = edPassword.getText().toString().trim();
 
-            userLogin(email, password);
-            userAuth(email, password);
+            if (userLogin(email, password)) {
+                userAuth(email, password);
+            }
         });
     }
 
-    private void userLogin(String email, String password) {
+    private boolean userLogin(String email, String password) {
 
         if (email.isEmpty()) {
             edEmail.setError("Email is required");
             edEmail.requestFocus();
-            return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edEmail.setError("Enter a valid Email");
             edEmail.requestFocus();
-            return;
+
         }
         if (password.isEmpty()) {
             edPassword.setError("Password is required");
             edPassword.requestFocus();
-            return;
+
         }
         if (password.length() < 8) {
             edPassword.setError("Password length must be at least 8 characters");
             edPassword.requestFocus();
-            return;
+
         }
-        progressBar.setVisibility(View.VISIBLE);
+
+        return true;
     }
 
     private void userAuth(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(LoginActivity.this, "Email and password are required.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     progressBar.setVisibility(View.GONE);
