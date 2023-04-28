@@ -18,4 +18,8 @@
     <string name="book_an_appointment">Book An Appointment</string>
     <string name="chat_with_doctor">Chat with Doctor</string>
     <string name="video_consultation">Video Consultation</string>
+    <string name="my_appointments">My Appointments</string>
+    <string name="setting">Setting</string>
+    <string name="profile">Profile</string>
+    <string name="welcome_how_can_i_assist_you">Welcome, How can I assist you?</string>
 </resources>

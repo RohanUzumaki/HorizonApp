@@ -8,7 +8,7 @@
    android:background="@drawable/dashboard" >
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/fragment_container"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="HardcodedText,TextSizeCheck,VisualLintOverlap" />
 
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Welcome, How can I assist you?"
+        android:text="@string/welcome_how_can_i_assist_you"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bookBtn"
