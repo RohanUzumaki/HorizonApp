@@ -17,7 +17,7 @@ public class OnlineConsActivity extends AppCompatActivity {
         btnVideoCons = findViewById(R.id.btnVideo);
         btnChatDoc = findViewById(R.id.btnChat);
 
-        btnVideoCons.setOnClickListener(task -> startActivity(new Intent(OnlineConsActivity.this, VideoConsultation.class)));
+        btnVideoCons.setOnClickListener(task -> startActivity(new Intent(OnlineConsActivity.this, video_consultation.class)));
         btnChatDoc.setOnClickListener(task -> startActivity(new Intent(OnlineConsActivity.this, ChatWithDoc.class)));
 
     }
