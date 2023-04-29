@@ -9,28 +9,44 @@
         android:id="@+id/first_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/first_name"
-        android:textSize="18sp" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationX="130dp"
+        android:translationY="160dp" />
 
     <TextView
         android:id="@+id/last_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/last_name"
-        android:textSize="18sp" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationX="130dp"
+        android:translationY="190dp" />
 
     <TextView
         android:id="@+id/email_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/email"
-        android:textSize="18sp" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationX="150dp"
+        android:translationY="220dp" />
 
     <TextView
         android:id="@+id/phone_number_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/phone"
-        android:textSize="18sp" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationX="147dp"
+        android:translationY="250dp" />
 
 </LinearLayout>

@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, selectedFragment);
                 transaction.commit();
-
                 return true;
             }
         });
