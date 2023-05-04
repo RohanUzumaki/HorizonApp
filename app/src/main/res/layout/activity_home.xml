@@ -25,7 +25,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/dashboard">
+            android:background="@drawable/home_screen">
 
             <Button
                 android:id="@+id/bookBtn"
@@ -81,13 +81,13 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/welcome_how_can_i_assist_you"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.312" />
+                app:layout_constraintVertical_bias="0.226" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
@@ -99,7 +99,7 @@
         app:menu="@menu/nav_menu"
         android:layout_gravity="start"
         />
-   <!-- The main content of your activity goes here -->
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

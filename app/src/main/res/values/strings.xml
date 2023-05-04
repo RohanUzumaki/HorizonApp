@@ -23,5 +23,6 @@
     <string name="profile">Profile</string>
     <string name="welcome_how_can_i_assist_you">Welcome, How can I assist you?</string>
     <string name="back">Back</string>
+    <string name="list_of_availaible_doctors">List of availaible Doctors</string>
 
 </resources>
