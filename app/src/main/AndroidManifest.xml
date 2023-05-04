@@ -15,7 +15,7 @@
             android:name=".ChatWithDoc"
             android:exported="false" />
         <activity
-            android:name=".VideoConsultation"
+            android:name=".video_consultation"
             android:exported="false" />
         <activity
             android:name=".OnlineConsActivity"

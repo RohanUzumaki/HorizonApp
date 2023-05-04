@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/profile_pic"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:src="@drawable/baseline_account_circle_24"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rohan"
+        android:layout_below="@+id/profile_pic"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginStart="16dp"
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginStart="16dp"
+        android:text="rohan.rop01@gmail.com"
+        android:textColor="#B1B1B1"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins_light"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_marginStart="16dp"
+        android:text="+91-730-562-9272"
+        android:textColor="#B1B1B1"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins_light"
+        android:textStyle="bold"/>
+    <View
+        android:layout_below="@+id/phone"
+        android:layout_width="match_parent"
+        style="@style/Line"
+        />
+
+
+</RelativeLayout>

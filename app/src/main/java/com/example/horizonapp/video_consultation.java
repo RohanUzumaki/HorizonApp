@@ -1,22 +1,23 @@
 package com.example.horizonapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import io.agora.rtc2.ChannelMediaOptions;
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IRtcEngineEventHandler;
 import io.agora.rtc2.RtcEngine;
 import io.agora.rtc2.RtcEngineConfig;
 import io.agora.rtc2.video.VideoCanvas;
-import io.agora.rtc2.ChannelMediaOptions;
 
 
 
@@ -29,11 +30,8 @@ public class video_consultation extends AppCompatActivity {
             };
 
     private boolean checkSelfPermission() {
-        if (ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[0]) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[1]) != PackageManager.PERMISSION_GRANTED) {
-            return false;
-        }
-        return true;
+        return ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[0]) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[1]) == PackageManager.PERMISSION_GRANTED;
     }
 
     void showMessage(String message) {
@@ -41,14 +39,6 @@ public class video_consultation extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show());
     }
 
-    // Fill the App ID of your project generated on Agora Console.
-    private final String appId = "ecff19a2c8ef4f619b2963d525c5f204";
-    // Fill the channel name.
-    private String channelName = "Horizon";
-    // Fill the temp token generated on Agora Console.
-    private String token = "007eJxTYPjltrdG/9WxA2u++tkwrH/QKLg78egdx6aC6An3RY7vvRSrwJCanJZmaJlolGyRmmaSZmZomWRkaWacYmpkmmyaZmRgMvGET0pDICPDaa8dLIwMEAjiszN45BdlVuXnMTAAAJm2I5M=\n";
-    // An integer that identifies the local user.
-    private int uid = 0;
     private boolean isJoined = false;
 
     private RtcEngine agoraEngine;
@@ -61,7 +51,8 @@ public class video_consultation extends AppCompatActivity {
         try {
             RtcEngineConfig config = new RtcEngineConfig();
             config.mContext = getBaseContext();
-            config.mAppId = appId;
+            // Fill the App ID of your project generated on Agora Console.
+            config.mAppId = "ecff19a2c8ef4f619b2963d525c5f204";
             config.mEventHandler = mRtcEventHandler;
             agoraEngine = RtcEngine.create(config);
             // By default, the video module is disabled, call enableVideo to enable it.
@@ -153,6 +144,12 @@ public class video_consultation extends AppCompatActivity {
             agoraEngine.startPreview();
             // Join the channel with a temp token.
             // You need to specify the user ID yourself, and ensure that it is unique in the channel.
+            // Fill the channel name.
+            String channelName = "Horizon";
+            // Fill the temp token generated on Agora Console.
+            String token = "007eJxTYPjltrdG/9WxA2u++tkwrH/QKLg78egdx6aC6An3RY7vvRSrwJCanJZmaJlolGyRmmaSZmZomWRkaWacYmpkmmyaZmRgMvGET0pDICPDaa8dLIwMEAjiszN45BdlVuXnMTAAAJm2I5M=\n";
+            // An integer that identifies the local user.
+            int uid = 0;
             agoraEngine.joinChannel(token, channelName, uid, options);
         } else {
             Toast.makeText(getApplicationContext(), "Permissions was not granted", Toast.LENGTH_SHORT).show();
