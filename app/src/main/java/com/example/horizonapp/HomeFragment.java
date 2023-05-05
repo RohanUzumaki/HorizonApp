@@ -1,9 +1,11 @@
 package com.example.horizonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
@@ -58,6 +60,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        Button bookbtn = view.findViewById(R.id.bookBtn);
+        Button consbtn = view.findViewById(R.id.consBtn);
+        bookbtn.setOnClickListener(task -> startActivity(new Intent(getActivity(), DocListActivity.class)));
+        consbtn.setOnClickListener(task -> startActivity(new Intent(getActivity(),OnlineConsActivity.class)));
+        return view;
     }
 }

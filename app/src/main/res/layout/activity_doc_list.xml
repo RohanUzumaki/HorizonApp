@@ -5,8 +5,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".HomeActivity">
+    android:background="@drawable/home_screen"
+    tools:context=".DocListActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
+                android:background="@color/light_green"
                 app:navigationIcon="@drawable/baseline_menu_24"
                 app:title="Horizon" />
         </com.google.android.material.appbar.AppBarLayout>
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/list_of_availaible_doctors"
+                android:text="@string/list_of_available_doctors"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"

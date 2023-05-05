@@ -1,46 +1,50 @@
 package com.example.horizonapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeActivity extends AppCompatActivity  {
-
-  Button bookbtn,consbtn;
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        MaterialToolbar toolbar= findViewById(R.id.topAppBar);
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, new HomeFragment())
+                    .commit();
+        }
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) item -> {
-            int id= item.getItemId();
+            int id = item.getItemId();
+            item.setChecked(true);
             drawerLayout.closeDrawer(GravityCompat.START);
-            switch (id){
+            switch (id) {
                 case R.id.nav_home:
-                    Toast.makeText(this, "Home is Clicked", Toast.LENGTH_SHORT).show();
+                    replaceFragment(new HomeFragment());
                     break;
-                case R.id.nav_message:
-                    Toast.makeText(this, "Message is Clicked", Toast.LENGTH_SHORT).show();
+                case R.id.nav_notifications:
+                    replaceFragment(new NotificationsFragment());
                     break;
                 case R.id.nav_settings:
-                    Toast.makeText(this, "Settings is Clicked", Toast.LENGTH_SHORT).show();
+                    replaceFragment(new SettingsFragment());
                     break;
                 case R.id.change_password:
-                    Toast.makeText(this, "Change Password is Clicked", Toast.LENGTH_SHORT).show();
+                    replaceFragment(new ChangePasswordFragment());
                     break;
                 case R.id.nav_logout:
                     Toast.makeText(this, "Logout is Clicked", Toast.LENGTH_SHORT).show();
@@ -51,10 +55,13 @@ public class HomeActivity extends AppCompatActivity  {
             return true;
         });
 
-        bookbtn = findViewById(R.id.bookBtn);
-        consbtn = findViewById(R.id.consBtn);
-       bookbtn.setOnClickListener(task -> startActivity(new Intent(HomeActivity.this, DocListActivity.class)));
-        consbtn.setOnClickListener(task -> startActivity(new Intent(HomeActivity.this,OnlineConsActivity.class)));
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, fragment);
+        fragmentTransaction.commit();
     }
 }
 

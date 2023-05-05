@@ -3,22 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/baseline_home_24"
         android:title="Home" />
     <item
-        android:id="@+id/nav_message"
+        android:id="@+id/nav_notifications"
         android:icon="@drawable/baseline_message_24"
-        android:title="Messages" />
+        android:title="Notifications" />
     <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/baseline_settings_24"
         android:title="Settings" />
 
+    </group>
+
 
     <item android:title="Profile">
         <menu>
+            <group android:checkableBehavior="single">
             <item
                 android:id="@+id/change_password"
                 android:icon="@drawable/baseline_security_24"
@@ -28,7 +32,9 @@
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_logout_24"
                 android:title="Logout" />
+            </group>
         </menu>
     </item>
+
 
 </menu>
