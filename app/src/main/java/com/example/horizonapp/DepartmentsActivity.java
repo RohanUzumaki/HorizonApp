@@ -12,6 +12,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
@@ -22,14 +24,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class CategoriesActivity extends AppCompatActivity {
+public class DepartmentsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories);
+        setContentView(R.layout.activity_departments);
 
 
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
@@ -90,7 +94,31 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle database error
-                Toast.makeText(CategoriesActivity.this, "Error Retrieving info", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DepartmentsActivity.this, "Error Retrieving info", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DatabaseReference doctorRef = FirebaseDatabase.getInstance().getReference().child("Doctor");
+        doctorRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<String> departmentNames = new ArrayList<>();
+                for (DataSnapshot departmentSnapshot : dataSnapshot.getChildren()) {
+                    // Retrieve the department name
+                    String departmentName = departmentSnapshot.getKey();
+                    // Add the department name to the list of department names
+                    departmentNames.add(departmentName);
+                }
+                // Pass the list of department names to the RecyclerView adapter
+                DepartmentAdapter departmentAdapter = new DepartmentAdapter(departmentNames);
+                recyclerView.setAdapter(departmentAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors here
             }
         });
 
