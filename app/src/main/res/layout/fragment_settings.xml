@@ -4,15 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_dynamic_neutral_variant90"
-    tools:context=".SettingsFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:layout_gravity="center"
-        android:textSize="80dp"
-        android:textStyle="bold"
-        />
-
-</FrameLayout>
+    tools:context=".SettingsFragment"/>

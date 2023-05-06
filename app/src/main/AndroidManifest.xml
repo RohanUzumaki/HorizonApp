@@ -12,6 +12,9 @@
         android:theme="@style/Theme.HorizonApp"
         tools:targetApi="33">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".ChatWithDoc"
             android:exported="false" />
         <activity
@@ -21,7 +24,7 @@
             android:name=".OnlineConsActivity"
             android:exported="false" />
         <activity
-            android:name=".DocListActivity"
+            android:name=".CategoriesActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

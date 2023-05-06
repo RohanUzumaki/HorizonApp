@@ -25,7 +25,7 @@
         />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
@@ -37,10 +37,10 @@
         android:fontFamily="@font/poppins_light"
         android:textStyle="bold" />
     <TextView
-        android:id="@+id/phone"
+        android:id="@+id/phoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/email"
+        android:layout_below="@+id/emailAddress"
         android:layout_marginStart="16dp"
         android:text="+91-730-562-9272"
         android:textColor="#B1B1B1"
@@ -49,7 +49,7 @@
         android:fontFamily="@font/poppins_light"
         android:textStyle="bold"/>
     <View
-        android:layout_below="@+id/phone"
+        android:layout_below="@+id/phoneNumber"
         android:layout_width="match_parent"
         style="@style/Line"
         />

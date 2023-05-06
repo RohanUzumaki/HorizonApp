@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         Button bookbtn = view.findViewById(R.id.bookBtn);
         Button consbtn = view.findViewById(R.id.consBtn);
-        bookbtn.setOnClickListener(task -> startActivity(new Intent(getActivity(), DocListActivity.class)));
+        bookbtn.setOnClickListener(task -> startActivity(new Intent(getActivity(), CategoriesActivity.class)));
         consbtn.setOnClickListener(task -> startActivity(new Intent(getActivity(),OnlineConsActivity.class)));
         return view;
     }

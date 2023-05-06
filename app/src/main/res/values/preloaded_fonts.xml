@@ -6,5 +6,8 @@
     <array name="poppins_light">
         <item>@font/poppins_light</item>
     </array>
+    <array name="poppins">
+        <item>@font/poppins</item>
+    </array>
     <string-array name="preloaded_fonts">fonts</string-array>
 </resources>

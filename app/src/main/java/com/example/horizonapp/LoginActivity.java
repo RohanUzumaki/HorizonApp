@@ -1,16 +1,17 @@
 package com.example.horizonapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +20,8 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText edEmail, edPassword;
     Button btn;
-    TextView tv;
+    CheckBox checkBox;
+    TextView tv, forgotpassword;
     ProgressBar progressBar;
 
     FirebaseAuth mAuth;
@@ -37,9 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         btn = findViewById(R.id.buttonLogin);
         tv = findViewById(R.id.textViewNewUser);
         progressBar = findViewById(R.id.progressBar);
+        checkBox = findViewById(R.id.checkBox);
+        forgotpassword = findViewById(R.id.forgotPass);
 
         tv.setOnClickListener(task -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
-
+        forgotpassword.setOnClickListener(task -> startActivity(new Intent(LoginActivity.this, ForgotPassword.class)));
         btn.setOnClickListener(v -> {
             String email = edEmail.getText().toString().trim();
             String password = edPassword.getText().toString().trim();
@@ -60,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edEmail.setError("Enter a valid Email");
             edEmail.requestFocus();
-
         }
         if (password.isEmpty()) {
             edPassword.setError("Password is required");

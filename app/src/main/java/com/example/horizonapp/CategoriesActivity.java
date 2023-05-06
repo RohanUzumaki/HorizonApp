@@ -24,27 +24,21 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class HomeActivity extends AppCompatActivity {
+public class CategoriesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_categories);
+
 
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
-
-
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frameLayout, new HomeFragment())
-                    .commit();
-        }
 
 
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) item -> {
+        navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             item.setChecked(true);
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -96,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle database error
-                Toast.makeText(HomeActivity.this, "Error Retrieving info", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CategoriesActivity.this, "Error Retrieving info", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -109,5 +103,3 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 }
-
-
