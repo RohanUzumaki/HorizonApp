@@ -41,6 +41,22 @@ public class DoctorsActivity extends AppCompatActivity {
 
 
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        Intent intent = getIntent();
+        String departmentName;
+        if (intent != null && intent.hasExtra("departmentName")) {
+            departmentName = intent.getStringExtra("departmentName");
+        } else {
+            // Show an error message or go back to the previous activity
+            Toast.makeText(this, "Department not found", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        setSupportActionBar(findViewById(R.id.topAppBar));
+
+        // Set the title of the action bar to the department name
+        Objects.requireNonNull(getSupportActionBar()).setTitle(departmentName);
+
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -112,20 +128,7 @@ public class DoctorsActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mDoctorAdapter);
 
 //         Get the department name from the intent extra
-        Intent intent = getIntent();
-        String departmentName;
-        if (intent != null && intent.hasExtra("departmentName")) {
-            departmentName = intent.getStringExtra("departmentName");
-        } else {
-            // Show an error message or go back to the previous activity
-            Toast.makeText(this, "Department not found", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
-        }
-        setSupportActionBar(findViewById(R.id.topAppBar));
 
-        // Set the title of the action bar to the department name
-        Objects.requireNonNull(getSupportActionBar()).setTitle(departmentName);
 
         // Get the doctors for the department from the database
         DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Doctor").child(departmentName);
