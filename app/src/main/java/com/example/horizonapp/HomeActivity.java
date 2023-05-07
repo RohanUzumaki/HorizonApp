@@ -103,11 +103,19 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        // Prevent the user from going back to the HomeActivity
+        moveTaskToBack(true);
+    }
     private void logOut() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
         Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+
+        // Start the LoginActivity and clear the backstack
         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
