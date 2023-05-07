@@ -20,6 +20,9 @@
         android:theme="@style/Theme.HorizonApp"
         tools:targetApi="33">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".DoctorsActivity"
             android:exported="false" />
         <activity
