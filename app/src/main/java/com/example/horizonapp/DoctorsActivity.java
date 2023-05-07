@@ -22,14 +22,12 @@ import java.util.Objects;
 public class DoctorsActivity extends AppCompatActivity {
 
     private DoctorAdapter mDoctorAdapter;
-
     private List<Doctor> mDoctors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
-
 
         RecyclerView mRecyclerView = findViewById(R.id.recycler_view_doc);
         mRecyclerView.setHasFixedSize(true);
@@ -39,15 +37,23 @@ public class DoctorsActivity extends AppCompatActivity {
         mDoctorAdapter = new DoctorAdapter(DoctorsActivity.this, mDoctors);
         mRecyclerView.setAdapter(mDoctorAdapter);
 
-        // get the department name from the intent extra
+        // Get the department name from the intent extra
         Intent intent = getIntent();
-        String departmentName = intent.getStringExtra("department");
+        String departmentName;
+        if (intent != null && intent.hasExtra("departmentName")) {
+            departmentName = intent.getStringExtra("departmentName");
+        } else {
+            // Show an error message or go back to the previous activity
+            Toast.makeText(this, "Department not found", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
-        // set the title of the action bar to the department name
+        // Set the title of the action bar to the department name
         Objects.requireNonNull(getSupportActionBar()).setTitle(departmentName);
 
-        // get the doctors for the department from the database
-        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference("Departments").child(departmentName).child("Doctors");
+        // Get the doctors for the department from the database
+        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Doctor").child(departmentName);
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -57,6 +63,7 @@ public class DoctorsActivity extends AppCompatActivity {
                     mDoctors.add(doctor);
                 }
                 mDoctorAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -64,5 +71,8 @@ public class DoctorsActivity extends AppCompatActivity {
                 Toast.makeText(DoctorsActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        if (mDoctors == null) {
+            mDoctors = new ArrayList<>();
+        }
     }
 }

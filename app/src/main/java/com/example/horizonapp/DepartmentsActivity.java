@@ -98,7 +98,7 @@ public class DepartmentsActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_dept);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         DatabaseReference doctorRef = FirebaseDatabase.getInstance().getReference().child("Doctor");
         doctorRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -117,9 +117,9 @@ public class DepartmentsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle errors here
-            }
+                Toast.makeText(DepartmentsActivity.this,"Error in Database",Toast.LENGTH_SHORT).show();            }
         });
 
     }

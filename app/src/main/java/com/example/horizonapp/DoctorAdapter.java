@@ -13,8 +13,8 @@ import java.util.List;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
 
-    private List<Doctor> doctorList;
-    private Context context;
+    private final List<Doctor> doctorList;
+    private final Context context;
 
     public DoctorAdapter(Context context, List<Doctor> doctorList) {
         this.context = context;
@@ -42,13 +42,12 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         return doctorList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView nameTextView, genderTextView, experienceTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             nameTextView = itemView.findViewById(R.id.name);
             genderTextView = itemView.findViewById(R.id.gender);
             experienceTextView = itemView.findViewById(R.id.experience);
