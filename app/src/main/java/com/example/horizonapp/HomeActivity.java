@@ -1,5 +1,6 @@
 package com.example.horizonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -59,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
                     replaceFragment(new SettingsFragment());
                     break;
                 case R.id.nav_logout:
-                    Toast.makeText(this, "Logout is Clicked", Toast.LENGTH_SHORT).show();
+                    logOut();
                     break;
                 default:
                     return true;
@@ -100,6 +101,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void logOut() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private void replaceFragment(Fragment fragment) {

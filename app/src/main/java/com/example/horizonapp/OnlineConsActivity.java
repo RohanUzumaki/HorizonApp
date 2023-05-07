@@ -56,7 +56,7 @@ public class OnlineConsActivity extends AppCompatActivity {
                     replaceFragment(new SettingsFragment());
                     break;
                 case R.id.nav_logout:
-                    Toast.makeText(this, "Logout is Clicked", Toast.LENGTH_SHORT).show();
+                    logOut();
                     break;
                 default:
                     return true;
@@ -105,6 +105,14 @@ public class OnlineConsActivity extends AppCompatActivity {
         btnVideoCons.setOnClickListener(task -> startActivity(new Intent(OnlineConsActivity.this, video_consultation.class)));
         btnChatDoc.setOnClickListener(task -> startActivity(new Intent(OnlineConsActivity.this, ChatWithDoc.class)));
 
+    }
+
+    private void logOut() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(OnlineConsActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private void replaceFragment(Fragment fragment) {

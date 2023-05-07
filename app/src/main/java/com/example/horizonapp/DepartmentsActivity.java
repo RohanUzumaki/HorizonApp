@@ -1,5 +1,6 @@
 package com.example.horizonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -57,7 +58,7 @@ public class DepartmentsActivity extends AppCompatActivity {
                     replaceFragment(new SettingsFragment());
                     break;
                 case R.id.nav_logout:
-                    Toast.makeText(this, "Logout is Clicked", Toast.LENGTH_SHORT).show();
+                    logOut();
                     break;
                 default:
                     return true;
@@ -119,9 +120,18 @@ public class DepartmentsActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle errors here
-                Toast.makeText(DepartmentsActivity.this,"Error in Database",Toast.LENGTH_SHORT).show();            }
+                Toast.makeText(DepartmentsActivity.this, "Error in Database", Toast.LENGTH_SHORT).show();
+            }
         });
 
+    }
+
+    private void logOut() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(DepartmentsActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private void replaceFragment(Fragment fragment) {

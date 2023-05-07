@@ -77,7 +77,7 @@ public class DoctorsActivity extends AppCompatActivity {
                     replaceFragment(new SettingsFragment());
                     break;
                 case R.id.nav_logout:
-                    Toast.makeText(this, "Logout is Clicked", Toast.LENGTH_SHORT).show();
+                    logOut();
                     break;
                 default:
                     return true;
@@ -154,6 +154,13 @@ public class DoctorsActivity extends AppCompatActivity {
         }
     }
 
+    private void logOut() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(DoctorsActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -29,5 +29,6 @@
     <string name="new_password">New Password</string>
     <string name="change_password">Change Password</string>
     <string name="list_of_departments">List of Departments</string>
+    <string name="department">Department</string>
 
 </resources>
