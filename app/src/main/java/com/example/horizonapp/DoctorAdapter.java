@@ -34,7 +34,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         Doctor doctor = doctorList.get(position);
         holder.nameTextView.setText(doctor.getName());
         holder.genderTextView.setText(doctor.getGender());
-        holder.experienceTextView.setText(doctor.getExperience() + " years");
+        holder.experienceTextView.setText(doctor.getExperience());
     }
 
     @Override
