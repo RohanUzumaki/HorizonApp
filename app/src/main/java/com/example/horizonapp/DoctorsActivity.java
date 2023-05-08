@@ -124,7 +124,7 @@ public class DoctorsActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mDoctors = new ArrayList<>();
-        mDoctorAdapter = new DoctorAdapter(DoctorsActivity.this, mDoctors);
+        mDoctorAdapter = new DoctorAdapter(DoctorsActivity.this, mDoctors,departmentName);
         mRecyclerView.setAdapter(mDoctorAdapter);
 
 //         Get the department name from the intent extra

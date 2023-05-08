@@ -20,6 +20,12 @@
         android:theme="@style/Theme.HorizonApp"
         tools:targetApi="33">
         <activity
+            android:name=".BookingSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
