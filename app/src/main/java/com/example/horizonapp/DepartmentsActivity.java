@@ -51,8 +51,8 @@ public class DepartmentsActivity extends AppCompatActivity {
                 case R.id.nav_home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.nav_notifications:
-                    replaceFragment(new NotificationsFragment());
+                case R.id.nav_my_appointments:
+                    replaceFragment(new MyAppointmentsFragment());
                     break;
                 case R.id.nav_settings:
                     replaceFragment(new SettingsFragment());
