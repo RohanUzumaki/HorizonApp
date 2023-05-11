@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_green"
     tools:context=".MyAppointmentsFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/nav_my_appointments"
-        android:layout_width="440dp"
-        android:layout_height="684dp" />
-
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

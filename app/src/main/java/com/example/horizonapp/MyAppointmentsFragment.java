@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,6 @@ public class MyAppointmentsFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private AppointmentsAdapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Appointment> mAppointmentList;
 
     // ...
@@ -36,12 +38,17 @@ public class MyAppointmentsFragment extends Fragment {
 
         mRecyclerView = v.findViewById(R.id.nav_my_appointments);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new AppointmentsAdapter(mAppointmentList);
+        mRecyclerView.setAdapter(mAdapter);
+
 
         // Get the appointments from Firebase and add them to the adapter
         mAppointmentList = new ArrayList<Appointment>();
         DatabaseReference appointmentsRef = FirebaseDatabase.getInstance().getReference("appointments");
+
+
         appointmentsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -9,14 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
+import android.util.Log;
 
 
 public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapter.AppointmentsViewHolder> {
 
-    private ArrayList<Appointment> mAppointmentList;
+    private final ArrayList<Appointment> mAppointmentList;
 
     public static class AppointmentsViewHolder extends RecyclerView.ViewHolder {
         public TextView mDateTextView;
@@ -41,32 +39,38 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
     }
 
     public AppointmentsAdapter(ArrayList<Appointment> appointmentList) {
-        mAppointmentList = appointmentList;
+       this.mAppointmentList = appointmentList;
     }
+
+
 
     @NonNull
     @Override
     public AppointmentsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_appointments, parent, false);
-        AppointmentsViewHolder viewHolder = new AppointmentsViewHolder(v);
         return new AppointmentsViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AppointmentsViewHolder holder, int position) {
-        Appointment currentItem = mAppointmentList.get(position);
+        Appointment appointment = mAppointmentList.get(position);
 
-        holder.mDateTextView.setText(currentItem.getAppointmentDate());
-        holder.mTimeSlotTextView.setText(currentItem.getAppointmentTimeSlot());
-        holder.mDepartmentTextView.setText(currentItem.getDepartment());
-        holder.mDoctorTextView.setText(currentItem.getDoctorName());
-        holder.mExperienceTextView.setText(currentItem.getDoctorExperience());
-        holder.mPatientTextView.setText(currentItem.getPatientName() + ", " + currentItem.getPatientAge());
+        holder.mDateTextView.setText(appointment.getAppointmentDate());
+        holder.mTimeSlotTextView.setText(appointment.getAppointmentTimeSlot());
+        holder.mDepartmentTextView.setText(appointment.getDepartment());
+        holder.mDoctorTextView.setText(appointment.getDoctorName());
+        holder.mExperienceTextView.setText(appointment.getDoctorExperience());
+        holder.mPatientTextView.setText(appointment.getPatientName() + ", " + appointment.getPatientAge());
+        Log.d("AppointmentsAdapter", "Binding appointment data at position " + position);
+
     }
 
     @Override
     public int getItemCount() {
+        if(mAppointmentList == null){
+            return  0;
+        }
+
         return mAppointmentList.size();
     }
 }
-
