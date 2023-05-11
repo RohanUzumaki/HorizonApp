@@ -10,9 +10,6 @@ public class Appointment {
     private String appointmentTimeSlot; // new field for time slot
 
 
-    public Appointment() {
-        // Required empty public constructor
-    }
 
     public Appointment(String doctorName, String department, String doctorExperience,
                        String patientName, int patientAge, String appointmentDate, String appointmentTimeSlot) {
