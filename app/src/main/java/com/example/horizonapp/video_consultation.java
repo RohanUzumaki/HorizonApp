@@ -147,7 +147,7 @@ public class video_consultation extends AppCompatActivity {
             // Fill the channel name.
             String channelName = "Horizon";
             // Fill the temp token generated on Agora Console.
-            String token = "007eJxTYPjltrdG/9WxA2u++tkwrH/QKLg78egdx6aC6An3RY7vvRSrwJCanJZmaJlolGyRmmaSZmZomWRkaWacYmpkmmyaZmRgMvGET0pDICPDaa8dLIwMEAjiszN45BdlVuXnMTAAAJm2I5M=\n";
+            String token = "007eJxTYJj5fnZII3+bp0SoZsL5CR90ZgRxZAq1H99Zc1M1mi/zW6YCQ2pyWpqhZaJRskVqmkmamaFlkpGlmXGKqZFpsmmakYGJn15cSkMgI0PZv9/MjAwQCOKzM3jkF2VW5ecxMAAAXWYf6g==";
             // An integer that identifies the local user.
             int uid = 0;
             agoraEngine.joinChannel(token, channelName, uid, options);
