@@ -7,9 +7,10 @@ public class Appointment {
     private String patientName;
     private int patientAge;
     private String appointmentDate;
-    private String appointmentTimeSlot; // new field for time slot
-
-
+    private String appointmentTimeSlot;
+    public Appointment() {
+        // Required empty public constructor
+    }
 
     public Appointment(String doctorName, String department, String doctorExperience,
                        String patientName, int patientAge, String appointmentDate, String appointmentTimeSlot) {
@@ -20,9 +21,9 @@ public class Appointment {
         this.patientAge = patientAge;
         this.appointmentDate = appointmentDate;
         this.appointmentTimeSlot = appointmentTimeSlot;
-
     }
 
+    // getters and setters for all fields
     public String getDoctorName() {
         return doctorName;
     }
@@ -70,11 +71,12 @@ public class Appointment {
     public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
-    public void setAppointmentTimeSlot(String appointmentTimeSlot) {
-        this.appointmentTimeSlot = appointmentTimeSlot;
-    }
+
     public String getAppointmentTimeSlot() {
         return appointmentTimeSlot;
     }
-}
 
+    public void setAppointmentTimeSlot(String appointmentTimeSlot) {
+        this.appointmentTimeSlot = appointmentTimeSlot;
+    }
+}

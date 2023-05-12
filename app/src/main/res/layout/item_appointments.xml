@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/card_view_doc"
-    android:layout_height="380dp"
+    android:layout_height="400dp"
     android:backgroundTint="@color/light_green"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
@@ -173,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="10.00AM-12.00AM"
+                android:text="10:00AM-12:00AM"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/black"
                 android:textSize="20sp" />

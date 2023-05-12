@@ -1,8 +1,5 @@
 package com.example.horizonapp;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,9 +45,9 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
     @Override
     public AppointmentsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_appointments, parent, false);
-        AppointmentsViewHolder viewHolder = new AppointmentsViewHolder(v);
         return new AppointmentsViewHolder(v);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull AppointmentsViewHolder holder, int position) {
@@ -61,8 +58,9 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
         holder.mDepartmentTextView.setText(currentItem.getDepartment());
         holder.mDoctorTextView.setText(currentItem.getDoctorName());
         holder.mExperienceTextView.setText(currentItem.getDoctorExperience());
-        holder.mPatientTextView.setText(currentItem.getPatientName() + ", " + currentItem.getPatientAge());
-    }
+        holder.mPatientTextView.setText(currentItem.getPatientName());
+        holder.mPatientAgeTextView.setText(String.valueOf(currentItem.getPatientAge()));    }
+
 
     @Override
     public int getItemCount() {
